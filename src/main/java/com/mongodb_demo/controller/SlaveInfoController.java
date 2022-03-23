@@ -5,9 +5,13 @@ import com.mongodb_demo.pojo.SlaveInfo;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin
 @RestController
@@ -64,7 +68,26 @@ public class SlaveInfoController {
         return slave;
     }
 
+    public Map<String, Object> findPage(@PathVariable Integer page, @PathVariable Integer size) {
 
+
+        Query query = new Query();
+        //添加查询条件
+        query.addCriteria(Criteria.where("_id").is("w-20-001"));
+        query.addCriteria(Criteria.where("CPU").is(100));
+        long count = mongoTemplate.count(query, SlaveInfo.class);
+
+        query.skip((page - 1) * size).limit(size);
+
+        List<SlaveInfo> slaveInfos = mongoTemplate.find(query, SlaveInfo.class);
+        Map<String, Object> map = new HashMap<>();
+
+        map.put("size", count);
+        map.put("slaveInfo", slaveInfos);
+
+
+        return map;
+    }
 
 
 }

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/mongodb_demo.iml" filepath="$PROJECT_DIR$/mongodb_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Spring-Boot-MongoDB-Demo.iml" filepath="$PROJECT_DIR$/Spring-Boot-MongoDB-Demo.iml" />
     </modules>
   </component>
 </project>
