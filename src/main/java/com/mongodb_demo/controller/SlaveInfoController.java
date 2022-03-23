@@ -68,6 +68,9 @@ public class SlaveInfoController {
         return slave;
     }
 
+
+    @ApiOperation(value = "分页查询")
+    @PostMapping("/findPage/{page}/{size}")
     public Map<String, Object> findPage(@PathVariable Integer page, @PathVariable Integer size) {
 
 
@@ -84,7 +87,6 @@ public class SlaveInfoController {
 
         map.put("size", count);
         map.put("slaveInfo", slaveInfos);
-
 
         return map;
     }
