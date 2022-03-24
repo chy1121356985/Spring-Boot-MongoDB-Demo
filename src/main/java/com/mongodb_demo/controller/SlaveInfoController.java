@@ -76,8 +76,8 @@ public class SlaveInfoController {
 
         Query query = new Query();
         //添加查询条件
-        query.addCriteria(Criteria.where("_id").is("w-20-001"));
-        query.addCriteria(Criteria.where("CPU").is(100));
+        //query.addCriteria(Criteria.where("_id").is("w-20-001"));
+        //query.addCriteria(Criteria.where("CPU").is(100));
         long count = mongoTemplate.count(query, SlaveInfo.class);
 
         query.skip((page - 1) * size).limit(size);

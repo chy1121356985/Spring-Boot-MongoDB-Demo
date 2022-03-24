@@ -7,7 +7,7 @@ spring:
 
 #修改D端口号默认8080
 server:
-  port: 8888
+  port: 8889
   tomcat:
     remoteip:
       host-header: 0.0.0.0
